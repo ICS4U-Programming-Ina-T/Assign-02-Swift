@@ -95,6 +95,7 @@ let text = ""
 var arrayToString: String = ""
 var blowupStringUser: String = ""
 var alteredList: String = ""
+// var loopCounter: Int = 0
 
 print("The strings in the input file will be altered.")
 print()
@@ -104,9 +105,19 @@ let listOftrings: String = try String(contentsOfFile: stringsLocation)
 let stringsArrayFile: [String] = listOftrings.components(separatedBy: "\n")
 
 for loopCounter in 0..<stringsArrayFile.count {
+    if stringsArrayFile[loopCounter].count == 0 {
+        alteredList.append("\n")
+        continue
+    } 
     blowupStringUser = blowup(stringFromFile: stringsArrayFile[loopCounter])
-    alteredList.append(blowupStringUser)
+    if loopCounter != stringsArrayFile.count - 1 {
+        alteredList.append(blowupStringUser + "\n")
+    } else {
+        alteredList.append(blowupStringUser)
+    }
+    blowupStringUser = blowup(stringFromFile: stringsArrayFile[loopCounter])
 }
+
 
 // converts list of reversed strings to an array
 let alteredStringsArray: [String] = alteredList.components(separatedBy: "\n")
