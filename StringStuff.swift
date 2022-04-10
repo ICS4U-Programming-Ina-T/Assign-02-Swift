@@ -5,7 +5,7 @@
 // Created on 2022-4-1
 // Version 1.0
 // Copyright (c) 2022 Ina Tolo. All rights reserved.
-//
+// 
 // The StringStuff program implements an application that
 // uses a function to alter the contents of a string and
 // returns a version of the original string passed as
